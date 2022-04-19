@@ -1,45 +1,86 @@
-from tkinter import Button
-from kivy.app import App
-from kivy.uix.widget import Widget
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.uix.anchorlayout import AnchorLayout
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.stacklayout import StackLayout
+StackLayoutExample:
+<StackLayoutExample>:
+    Button:
+        text: "A"
+        size_hint: .2, .3
 
 
-class StackLayoutExample(StackLayout):
-    pass
 
+<GridLayoutExample>:
+    #row
+    #cols
+    cols: 3
+    row: 2
+    Button:
+        text: "A"
+        size_hint: None, 1
+        width: "60dp"
+    BoxLayoutExample:
+    Button:
+        text: "C"
+    Button:
+        text: "D"
+        size_hint: None, 1
+        width: "60dp"
+    Button:
+        text: "E"
+    Button:
+        text: "F123"
 
-class GridLayoutExample(GridLayout):
-    pass
+<AnchorLayoutExample>:
+    #right, left, center
+    anchor_x: "left"
+    #bottom, top, center
+    anchor_y: "bottom"
+    
+    BoxLayout:
+        size_hint: .2, .2
+        Button:
+            text: "A"
+        Button:
+            text: "B"
 
+<BoxLayoutExample>:
+    #orientation:"vertical"
+    orientation:"horizontal"
+    Button:
+        text:"A"
+        
+        #size:"40dp", "48dp"
+        size_hint: .5, None
+        #width: "100dp"
+        #height: "60dp"
+        #x, center_x, right
+        #pos_hint:{"x": .1}
+        #y, center_y, top
+        #pos_hint:{"center_x": .5}
+        #pos_hint:{"top": 1}
+        pos_hint:{"center_y": .5}
 
-class AnchorLayoutExample(AnchorLayout):
-    pass
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        Button:
+            text:"B1"
+        Button:
+            text:"B2"
+        Button:
+            text:"B3"
+        Button:
+            text:"B4"
+#            size_hint: 1, 2
+    Label:
+        text:"C"
 
-
-class BoxLayoutExample(BoxLayout):
-    pass
-    """def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.orientation = "vertical"
-
-        b1 = Button(text="A")
-        b2 = Button(text="B")
-        b3 = Button(text="C")
-        self.add_widget(b1)
-        self.add_widget(b2)
-        self.add_widget(b3)"""
-
-
-class MainWidget(Widget):
-    pass
-
-
-class TheLabApp(App):
-    pass
-
-
-TheLabApp().run()
+<MainWidget>:
+    Button:
+        text: "Hello"
+        size: "400dp", "200dp"
+        pos: "100dpi", "200dp"
+        color: 1, 0, 0, 1
+    
+    #Label:
+        text: "Hello2"
+        size: "450dp", "200dp"
+        pos: "200dpi", "300dp"
+        color: 1, 0, 0, 1
